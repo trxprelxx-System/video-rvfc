@@ -241,10 +241,9 @@ To <dfn>run the video frame request callbacks</dfn> for a {{HTMLVideoElement}} |
 1. Set the [=last presented frame identifier=] to |presentedFrames|.
 1. Let |callbacks| be the [=list of video frame request callbacks=].
 1. Set |video|'s [=list of video frame request callbacks=] to be empty.
-1. For each entry in |callbacks|
-  1. If the entry's [=canceled=] boolean is <code>true</code>, continue to the next entry.
-  1. [=Invoke=] the callback, passing |now| and |metadata| as arguments
-  1. If an exception is thrown, [=report the exception=].
+1. [=list/For each=] |entry| of |callbacks|:
+  1. If |entry|'s [=canceled=] boolean is <code>true</code>, continue.
+  1. [=Invoke=] |entry| with « |now|, |metadata| » and "`report`".
 
 Note: There are **no strict timing guarantees** when it comes to how soon
 {{VideoFrameRequestCallback|callbacks}} are run after a new video frame has been presented.
